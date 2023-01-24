@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <title>Show Recipes</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Welcome {{session.first_name}}!</h1>
+
+        
+        <div class="container1">
+            <a href="/recipes" class="btn btn-primary">Home</a>
+            <a href="/logout" class="btn btn-primary">Logout</a>
+        </div>
+
+        <div class="title">
+            <h2>{{recipe.name}}</h2>
+            <h3>Posted By: {{recipe.first_name}}</h3>
+        </div>
+        
+        <div class="body_info">
+
+            <p class="info">
+                Description: {{recipe.description}}
+            </p>
+
+            <p class="info">
+                Under 30 Minutes? {% if recipe.under_30 %}
+                                        Yes
+                                    {% else %}
+                                        No
+                                    {% endif %}
+            </p>
+
+            <p class="info">
+                Instructions: {{recipe.instructions}}
+            </p>
+
+            <p class="info">
+                Date Made: {{recipe.date_made}}
+            </p>
+
+            <p class="info">
+                Numbers Served: {{recipe.number_served}}
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

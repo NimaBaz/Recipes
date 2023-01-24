@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <title>Edit Recipes</title>
+</head>
+<body>
+    <div class="main">
+        <h2>Edit Recipe</h2>
+
+        <div class="container1">
+            <a href="/recipes" class="btn btn-primary">Home</a>
+            <a href="/logout" class="btn btn-primary">Logout</a>
+            
+        </div>
+
+        <div>
+            <form action='/recipes/update' method='post'>
+                <div>
+
+                    {% with messages = get_flashed_messages() %}    
+                        {% if messages %}                        
+                            {% for message in messages %}     
+                                <p>{{message}}</p>          
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    
+                    <input type="hidden" name="id" value="{{recipe.id}}">
+        
+                    <div>
+                        <label for='name'>Name:</label>
+                        <input type='text' class="form-control" name='name' value="{{recipe.name}}">
+                    </div>
+        
+                    <div>
+                        <label for='description'>Description:</label>
+                        <input type='text' class="form-control" name='description' value="{{recipe.description}}">
+                    </div>
+
+                    <div>
+                        <label for='instructions'>Instructions:</label>
+                        <input type='text' class="form-control" name='instructions' value="{{recipe.instructions}}">
+                    </div>
+        
+                    <div>
+                        <label for='date_made'>Date Made:</label>
+                        <input type='date' class="form-control" id="exampleInputPassword" name='date_made' value="{{recipe.date_made}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for='number_served'>Numbers Served:</label>
+                        <input type='number' class="form-control" id="exampleInputPassword" name='number_served' value="{{recipe.number_served}}">
+                    </div>
+
+                    <div>
+                        <label for='under_30'>Under 30 Minutes?</label>
+
+                        {% if recipe.under_30 %}
+                        <div>
+                            <input type='radio' id="yes" name='under_30' value="1" checked>
+                            <label for='under_30'>Yes</label>
+                        </div>
+                        <div>
+                            <input type='radio' id="no" name='under_30' value="0">
+                            <label for='under_30'>No</label>
+                        </div>
+                            
+                        {% else %}
+                        <div>
+                            <input type='radio' id="yes" name='under_30' value="1" checked>
+                            <label for='under_30'>Yes</label>
+                        </div>
+                        <div>
+                            <input type='radio' id="no" name='under_30' value="0">
+                            <label for='under_30'>No</label>
+                        </div>
+                        {% endif %}
+                    </div>
+        
+                <div>
+                    <button type="submit" class="btn btn-primary" value='create user'>
+                        Update
+                    </button>
+                </div>
+        
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

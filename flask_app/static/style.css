@@ -1,0 +1,62 @@
+/* RESETS */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px dashed red; */
+}
+
+body {
+    background: linear-gradient(rgb(199, 199, 250), rgb(233, 233, 222));
+}
+
+/* MAIN */
+.main {
+    margin: 0 auto;
+    width: 1000px;
+    height: 1000px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.container1 {
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.body_info {
+    margin-left: 60px;
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 800px;
+    height: 400px;
+}
+
+.info {
+    font-size: large;
+    font-weight: bold;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 60px;
+    margin-right: 100px;
+}
+
+
+
+
