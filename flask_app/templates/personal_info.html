@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+</head>
+<body>
+
+    <div class="form-container">
+    <h2><i class="fas fa-user"></i> Personal Information</h2>
+    
+    <!-- Date of Birth and Age -->
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" onchange="calculateAge()">
+    <div class="age-display" id="ageDisplay">Age: —</div>
+
+    <!-- Gender Selection -->
+    <label>Gender:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="gender" value="Male"> Male</label>
+        <label><input type="radio" name="gender" value="Female"> Female</label>
+        <label><input type="radio" name="gender" value="Other"> Other</label>
+    </div>
+
+    <!-- Pre-existing Conditions -->
+    <label for="conditions">Pre-existing Medical Conditions:</label>
+    <textarea id="conditions" name="conditions" rows="3" placeholder="List any conditions..."></textarea>
+
+    <!-- Allergies -->
+    <label for="allergies">Allergies:</label>
+    <textarea id="allergies" name="allergies" rows="3" placeholder="List any allergies..."></textarea>
+
+    <button class="btn2" type="submit">Submit</button>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const dob = document.getElementById("dob").value;
+            const ageDisplay = document.getElementById("ageDisplay");
+            if (dob) {
+            const birthDate = new Date(dob);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            ageDisplay.textContent = `Age: ${age}`;
+            } else {
+            ageDisplay.textContent = "Age: —";
+            }
+        }
+    </script>
+
+</body>
+</html>
